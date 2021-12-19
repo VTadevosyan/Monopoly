@@ -11,7 +11,7 @@
 namespace Core {
 
 /// @class Dice
-/// @brief Dice
+/// @brief Dice class definition
 class Dice
 {
 public:
@@ -23,7 +23,7 @@ public:
 
 public:
     /// @brief Constructor
-    Dice();
+    Dice() = default;
 
     /// @brief Destructor
     ~Dice() = default;

@@ -9,6 +9,10 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
+#include <QResizeEvent>
+
+#include <iostream>
+
 
 namespace Gui {
 
@@ -32,13 +36,21 @@ void CentralWidget::createWidgets()
 
 void CentralWidget::setupLayout()
 {
-    QHBoxLayout* mainLayout = new QHBoxLayout(this);
+    QHBoxLayout* mainLayout = new QHBoxLayout;
+    mainLayout->addStretch();
     mainLayout->addWidget(mPlayersPane);
     mainLayout->addWidget(mGameBoard);
+    mainLayout->addStretch();
     mainLayout->setStretchFactor(mPlayersPane, 1);
-    mainLayout->setStretchFactor(mGameBoard, 3);
+    mainLayout->setStretchFactor(mGameBoard, 4);
     setLayout(mainLayout);
 }
+
+void CentralWidget::resizeEvent(QResizeEvent*)
+{
+    mPlayersPane->resize(mPlayersPane->width(), mGameBoard->height());
+}
+
 
 
 } /// Gui namespace

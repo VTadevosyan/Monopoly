@@ -26,6 +26,10 @@ public:
     /// @brief Destructor
     ~CentralWidget() = default;
 
+public:
+    /// @brief Handles resize event
+    void resizeEvent(QResizeEvent*) override;
+
 private:
     void initialize();
     void createWidgets();
